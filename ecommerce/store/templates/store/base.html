@@ -44,7 +44,7 @@
 
                         {% for category in all_categories %}
                         <li>
-                            <a class="dropdown-item" href=""> {{ category.name | capfirst }} </a>      
+                            <a class="dropdown-item" href="{{category.get_absolute_url}}"> {{ category.name | capfirst }} </a>      
                         </li>
                         {% endfor %}
                     </ul>
@@ -61,7 +61,7 @@
                 </li>
                 &nbsp; &nbsp; &nbsp;
                 <li class="nav-item">
-                    <a type="button" role="button" href="/" class="btn btn-outline-secondary"> 
+                    <a type="button" role="button" href="{% url 'cart-summary' %}" class="btn btn-outline-secondary"> 
                     
                         <i class="fa fa-shopping-cart" aria-hidden="true"> </i>
                     </a>
