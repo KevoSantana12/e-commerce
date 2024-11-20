@@ -4,7 +4,8 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <title> Edenthought </title>
+	  <title> EcoMakers 
+    </title>
         <!-- CSS -->
         <link rel="stylesheet" href="https://bootswatch.com/5/flatly/bootstrap.min.css">
 
@@ -18,7 +19,7 @@
     </head>
     <nav class="navbar navbar-expand-lg bg-primary justify-content-center">
         <a class="navbar-brand main-heading text-white" href="{% url 'store' %}"> 
-        &nbsp; &nbsp; Edenthought 
+        &nbsp; &nbsp; EcoMakers 
         </a>
         <button
         class="navbar-toggler"
@@ -35,7 +36,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                        Categories
+                        Categorias
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li>                            
@@ -54,16 +55,36 @@
         <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="btn btn-alert navbar-btn text-white" type="button"  href="/"> Register </a>
+                    <a class="btn btn-alert navbar-btn text-white" type="button"  href="{% url 'register' %}"> Registrar </a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-alert navbar-btn text-white" type="button"  href="/"> Login </a>
+                    <a class="btn btn-alert navbar-btn text-white" type="button"  href="/"> Ingresar </a>
                 </li>
                 &nbsp; &nbsp; &nbsp;
                 <li class="nav-item">
                     <a type="button" role="button" href="{% url 'cart-summary' %}" class="btn btn-outline-secondary"> 
                     
+                        
                         <i class="fa fa-shopping-cart" aria-hidden="true"> </i>
+                        
+                        &nbsp;
+
+                        <div id="cart-qty" class="d-inline-flex">
+
+                            {% with qty_amount=cart|length %}
+
+                                {% if qty_amount > 0 %}
+                                    
+                                    {{ qty_amount }}
+
+                                    {% else %}
+
+                                        0
+                                
+                                    {% endif %}
+
+                            {% endwith %}
+                        </div>
                     </a>
 
                 </li>
