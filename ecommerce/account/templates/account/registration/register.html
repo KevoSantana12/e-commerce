@@ -3,21 +3,85 @@
 
 {% load static %}
 
+{% load crispy_forms_tags %}
+
+
 {% block content %}
 
-<body>
-    
-    <br>
-
-    <div class="container bg-white shadow-md p-5">
-
-        <h3> Create your account </h3>
-
-        
-
-    </div>
+    <style>
 
 
-</body>
+        body{
+
+
+            background-color: gray;
+
+        }
+
+
+
+    </style>
+  
+
+    <body>
+
+        <br>
+
+        <div class="container bg-white shadow-md p-5 form-layout">
+
+            <h3> Crea tu cuenta</h3>
+
+            <h5> Compra tus productos favoritos! </h5>
+
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+
+                {% csrf_token %}
+
+                {{form.username|as_crispy_field}}
+
+                <br> <br>
+
+
+                {{form.email|as_crispy_field}}
+
+                <br> <br>
+
+
+                {{form.password1|as_crispy_field}}
+
+                <br> <br>
+
+
+                {{form.password2|as_crispy_field}}
+
+
+                <br> <br>
+                
+                <button type="submit" class="btn btn-primary navbar-btn text-white w-100 p-2"> &nbsp; Crear cuenta </button>
+                <br> <br>
+
+            </form>
+
+        </div>
+
+
+
+    </body>
+
+    <br> <br>
+
 
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
